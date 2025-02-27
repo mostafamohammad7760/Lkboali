@@ -1,0 +1,949 @@
+
+
+/* Define color variables for the theme */
+:root {
+  --primary-color: #2a5298;
+  --secondary-color: #1e3c72;
+  --success-color: #28a745;
+  --warning-color: #ffc107; 
+  --danger-color: #dc3545;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --border-radius: 15px;
+  --card-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  --transition: all 0.3s ease;
+}
+
+/* General body styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  direction: ltr;
+  background: linear-gradient(135deg, #00bcd4, #009688);
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Main container settings */
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.98);
+  padding: 40px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Main heading styles */
+h1 {
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 2.8em;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+/* Decorative line below the heading */
+h1:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 2px;
+}
+
+/* Grid layout settings */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Input section styles */
+.input-section {
+  background: #8AF1FE;
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: var(--transition);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Hover effects for input sections */
+.input-section:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow);
+}
+
+/* Heading styles in input section */
+.input-section h2 {
+  color: var(--secondary-color);
+  font-size: 1.5em;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Floating label settings */
+.form-float-label {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+/* Floating label styles */
+.form-float-label label {
+  position: absolute;
+  left: 15px;
+  top: -10px;
+  background: #fff;
+  padding: 0 8px;
+  font-size: 0.9em;
+  color: var(--primary-color);
+  z-index: 1;
+  right: auto;
+}
+
+/* Input and select field styles */
+input, select {
+  width: 90%;
+  padding: 15px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1.5em;
+  text-align: center;
+  transition: var(--transition);
+  background: var(--light-color);
+}
+
+/* Focus effects on input and select fields */
+input:focus, select:focus {
+  background-color: #f6ff00; 
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(42, 82, 152, 0.1);
+  outline: none;
+}
+
+/* Button styles */
+button {
+  display: block;
+  width: auto;
+  min-width: 200px;
+  margin: 40px auto;
+  padding: 15px 40px;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 5px 15px rgba(30, 60, 114, 0.2);
+}
+
+/* Hover effects on buttons */
+button:hover {
+  background: linear-gradient(135deg, #feb47b, #ff7e5f); 
+  transform: scale(1.05); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Hover effect for input fields */
+input:hover {
+  background: #f6ff00; 
+}
+
+
+/* Grid layout for charts */
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 30px;
+  margin: 30px 0;
+}
+
+/* Card styling for individual charts */
+.chart-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: var(--transition);
+}
+
+/* Hover effect for chart cards */
+.chart-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow);
+}
+
+/* Status indicator styles */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 600;
+  margin: 5px;
+}
+
+/* Styles for a good status indicator */
+.status-good {
+  background: rgba(40, 167, 69, 0.1);
+  color: #28a745 !important;
+  border-right-color: #28a745;
+}
+
+/* Styles for a warning status indicator */
+.status-warning {
+  background: rgba(255, 193, 7, 0.1);
+  color: #ffc107 !important;
+  border-right-color: #ffc107;
+}
+
+/* Styles for a critical status indicator */
+.status-critical {
+  background: rgba(220, 53, 69, 0.1);
+  color: #dc3545 !important;
+  border-right-color: #dc3545;
+}
+
+/* Comprehensive analysis section styles */
+.comprehensive-analysis {
+  padding: 30px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Group analysis section styles */
+.analysis-group {
+  margin-bottom: 40px;
+  padding: 25px;
+  border-radius: 15px;
+  background: #8AF1FE;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for analysis groups */
+.analysis-group:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* Theme styles with colored borders */
+.theme-1 { border-left: 5px solid #4CAF50; border-right: none; }
+.theme-2 { border-left: 5px solid #2196F3; border-right: none; }
+.theme-3 { border-left: 5px solid #9C27B0; border-right: none; }
+.theme-4 { border-left: 5px solid #FF9800; border-right: none; }
+.theme-5 { border-left: 5px solid #E91E63; border-right: none; }
+
+/* Title styling for analysis groups */
+.group-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--dark-color);
+  font-size: 1.3em;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+
+/* Icon color in group title */
+.group-title i {
+  color: var(--primary-color);
+}
+
+/* Grid layout for deep liquidity metrics */
+.deep-liquidity-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Card styles for deep liquidity metrics */
+.metric-deep-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for deep liquidity metric cards */
+.metric-deep-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Heading styles in deep liquidity metrics */
+.metric-deep-card h5 {
+  color: var(--primary-color);
+  margin: 0 0 15px 0;
+  font-size: 1.1em;
+}
+
+/* Value styling for metrics */
+.metric-value {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin: 10px 0;
+}
+
+/* Grid layout for financial risk assessment */
+.financial-risk-assessment {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Card styles for financial risk */
+.risk-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Risk level styling */
+.risk-level {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+/* Styles for high-risk indicators */
+.high-risk {
+  background: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+}
+
+/* Styles for low-risk indicators */
+.low-risk {
+  background: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+}
+
+/* Grid layout for financial health indicators */
+.financial-health-indicators {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Card styles for health indicators */
+.health-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Styling for metric status indicators */
+.metric-status {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+/* Excellent status indicator styling */
+.status-excellent {
+  background: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+}
+
+/* Padding for scenario analysis containers */
+.scenario-analysis {
+  padding: 20px;
+}
+
+/* Layout for scenario cards using grid */
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Basic styles for individual scenario cards */
+.scenario-card {
+  padding: 20px;
+  border-radius: 12px;
+  background: #8AF1FE;
+}
+
+/* Styles for the best-case scenario card */
+.best-case {
+  border-left: 4px solid #4CAF50;
+}
+
+/* Styles for the worst-case scenario card */
+.worst-case {
+  border-left: 4px solid #dc3545;
+}
+
+/* Padding for trend analysis sections */
+.trend-comparative-analysis {
+  padding: 20px;
+}
+
+/* Grid layout for trend metrics */
+.trend-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Styles for trend analysis cards */
+.trend-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+/* Font styling for trend values */
+.trend-value {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 10px 0;
+}
+
+/* Dashboard styling for charts */
+.charts-dashboard {
+  margin-top: 40px;
+  background: #8AF1FE;
+}
+
+/* Title styling within the charts dashboard */
+.charts-dashboard h3 {
+  text-align: center;
+  color: var(--secondary-color);
+  margin-bottom: 30px;
+}
+
+/* Grid layout for charts */
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 25px;
+}
+
+/* Grid layout for risk assessment cards */
+.risk-assessment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Card styling for risk categories */
+.risk-category-card {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Header styles for risk category cards */
+.risk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* Score bar styling */
+.score-bar {
+  width: 100%;
+  height: 8px;
+  background: #f8f9fa;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+
+/* Fill styling for score bar */
+.score-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.8s ease;
+}
+
+/* Factor item styling in risk assessment */
+.factor-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Recommendations container for risk analysis */
+.risk-recommendations {
+  margin-top: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* Styling for the list inside recommendations */
+.risk-recommendations ul {
+  margin: 10px 0;
+  padding-right: 20px;
+}
+
+/* List item styling inside recommendations */
+.risk-recommendations li {
+  margin: 5px 0;
+  color: #666;
+}
+
+/* Forecast details grid layout */
+.forecast-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+/* Styling for forecast scenario cards */
+.forecast-scenario {
+  background: #8AF1FE;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Heading styles for forecast scenarios */
+.forecast-scenario h4 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+
+/* Basic styles for forecast cards */
+.forecast-card {
+  background: #f8f9fa;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for forecast cards */
+.forecast-card:hover {
+  transform: translateX(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Card title styles in forecast cards */
+.forecast-card h5 {
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+}
+
+/* Paragraph styling in forecast cards */
+.forecast-card p {
+  margin: 5px 0;
+  color: #666;
+}
+
+/* Section for advanced ratios analysis */
+.advanced-ratios-analysis {
+  margin-top: 40px;
+}
+
+/* Grid layout for ratios */
+.ratios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+/* Styling for ratio category cards */
+.ratio-category {
+  background: #8AF1FE;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Heading styles for ratio categories */
+.ratio-category h4 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+
+/* Basic styles for ratio cards */
+.ratio-card {
+  background: #f8f9fa;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for ratio cards */
+.ratio-card:hover {
+  transform: translateX(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Grouping metrics */
+.metrics-group {
+  margin: 15px 0;
+}
+
+/* Styling for individual metrics */
+.metric {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+/* Value styling for metrics */
+.value {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* Styling for input icons */
+.input-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-color);
+  opacity: 0.7;
+  left: auto;
+}
+
+/* General card styling for analysis */
+.analysis-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: var(--border-radius);
+  margin: 15px 0;
+  border-left: 4px solid var(--primary-color);
+  transition: var(--transition);
+}
+
+/* Hover effect for analysis cards */
+.analysis-card:hover {
+  transform: translateX(-5px);
+  box-shadow: var(--card-shadow);
+}
+
+/* Font styling for metric values */
+.metric-value {
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 15px 0;
+}
+
+/* Label styling for metrics */
+.metric-label {
+  color: var(--dark-color);
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+/* Description styling for metrics */
+.metric-description {
+  color: #666;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+/* Profit styling for metrics */
+.profit {
+  color: #28a745 !important;
+  background-color: rgba(40, 167, 69, 0.1);
+  border-left-color: #28a745;
+}
+
+/* Loss styling for metrics */
+.loss {
+  color: #dc3545 !important; 
+  background-color: rgba(220, 53, 69, 0.1);
+  border-left-color: #dc3545;
+}
+
+/* Font styling for ratio values */
+.ratio-value {
+  font-size: 1.8em;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+/* Profit styling for ratio values */
+.ratio-value.profit {
+  color: #28a745 !important;
+}
+
+/* Loss styling for ratio values */
+.ratio-value.loss {
+  color: #dc3545 !important;
+}
+
+/* Profit styling for metric values */
+.metric-value.profit {
+  color: #28a745 !important;
+}
+
+/* Loss styling for metric values */
+.metric-value.loss {
+  color: #dc3545 !important;
+}
+
+/* Profit styling for trend values */
+.trend-value.profit {
+  color: #28a745 !important;
+}
+
+/* Loss styling for trend values */
+.trend-value.loss {
+  color: #dc3545 !important;
+}
+
+/* Profit styling for simple value indicators */
+.value.profit {
+  color: #28a745 !important;
+}
+
+/* Loss styling for simple value indicators */
+.value.loss {
+  color: #dc3545 !important;
+}
+
+/* Profit styling for factor values */
+.factor-value.profit {
+  color: #28a745 !important;
+}
+
+/* Loss styling for factor values */
+.factor-value.loss {
+  color: #dc3545 !important;
+}
+
+/* Profit styling for scenario values */
+.scenario-value.profit {
+  color: #28a745 !important;
+}
+
+/* Loss styling for scenario values */
+.scenario-value.loss {
+  color: #dc3545 !important;
+}
+
+/* Profit styling for risk values */
+.risk-value.profit {
+  color: #28a745 !important;
+}
+
+/* Loss styling for risk values */
+.risk-value.loss {
+  color: #dc3545 !important;
+}
+
+/* Loading overlay styling */
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+
+
+
+
+/* Loader spinner styling */
+.loading-spinner {
+  width: 50px; /* Width of the spinner */
+  height: 50px; /* Height of the spinner */
+  border: 5px solid #f3f3f3; /* Light gray border for the spinner */
+  border-top: 5px solid var(--primary-color); /* Primary color for the top border */
+  border-radius: 50%; /* Makes the spinner circular */
+  animation: spin 1s linear infinite; /* Continuous spinning animation */
+}
+
+/* Keyframes for spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); } /* Starting point of the spin */
+  100% { transform: rotate(360deg); } /* Ending point completing one rotation */
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; /* Start fully transparent */
+    transform: translateY(20px); /* Start slightly below from the Y axis */
+  }
+  to {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Positioned at the original place */
+  }
+}
+
+/* Grid layout for current ratio analysis section */
+.current-ratio-analysis {
+  display: grid; /* Uses grid layout */
+  gap: 20px; /* Spacing between grid items */
+  margin: 20px 0; /* Vertical margin around the section */
+}
+
+/* Styles for analysis cards within the current ratio analysis */
+.current-ratio-analysis .analysis-card {
+  background: #fff; /* White background for cards */
+  padding: 25px; /* Inner padding */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+  transition: all 0.3s ease; /* Smooth transition effect on hover */
+}
+
+/* Hover effect for analysis cards */
+.current-ratio-analysis .analysis-card:hover {
+  transform: translateY(-5px); /* Slightly lift card */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Increase shadow on hover */
+}
+
+/* Styles for headings in current ratio analysis */
+.current-ratio-analysis h5 {
+  color: var(--primary-color); /* Primary color for headings */
+  margin-bottom: 15px; /* Space below the heading */
+  font-size: 1.2em; /* Size of the heading font */
+}
+
+/* List styles in current ratio analysis section */
+.current-ratio-analysis ul {
+  list-style-type: none; /* Removes default bullets */
+  padding: 0; /* No padding for the list */
+}
+
+/* List item styling within current ratio analysis */
+.current-ratio-analysis ul li {
+  margin: 10px 0; /* Vertical spacing between list items */
+  padding: 10px; /* Inner padding */
+  background: #f8f9fa; /* Light gray background */
+  border-radius: 8px; /* Rounded corners */
+  border-left: 3px solid var(--primary-color); /* Left border with primary color */
+}
+
+/* Status indicator styling */
+.current-ratio-analysis .status-indicator {
+  display: inline-block; /* Inline block for spacing */
+  padding: 8px 15px; /* Inner padding */
+  border-radius: 20px; /* Rounded corners */
+  font-weight: 600; /* Bold text */
+  margin: 10px 0; /* Vertical spacing */
+}
+
+/* Media query for responsive design on screens smaller than 768px */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px; /* Padding for container */
+  }
+  
+  .grid-container {
+    grid-template-columns: 1fr; /* Single column layout */
+  }
+  
+  .chart-grid {
+    grid-template-columns: 1fr; /* Single column for charts */
+  }
+  
+  h1 {
+    font-size: 2em; /* Larger heading on small screens */
+  }
+  
+  button {
+    width: 100%; /* Full width buttons */
+  }
+  
+  .comprehensive-analysis {
+    padding: 15px; /* Padding for analysis section */
+  }
+  
+  /* Make all specified grids single column */
+  .deep-liquidity-metrics,
+  .financial-risk-assessment,
+  .financial-health-indicators,
+  .scenario-grid,
+  .trend-metrics,
+  .chart-grid,
+  .risk-assessment-grid,
+  .forecast-details,
+  .ratios-grid {
+    grid-template-columns: 1fr; /* Single column layout */
+  }
+  
+  .group-title {
+    font-size: 1.1em; /* Smaller font for group titles */
+  }
+  
+  .metric-value {
+    font-size: 1.5em; /* Font size for metric values */
+  }
+}
+
+/* Media query for print styles */
+@media print {
+  .export-buttons {
+    display: none; /* Hide export buttons during print */
+  }
+  
+  .container {
+    padding: 0; /* Remove padding for print */
+    box-shadow: none; /* Remove shadows for a cleaner print */
+  }
+  
+  body {
+    background: none; /* Remove background color for print */
+  }
+}
+
+
+
